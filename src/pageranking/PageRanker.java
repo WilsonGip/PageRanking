@@ -1,4 +1,4 @@
-package recommenders;
+package pageranking;
 /**
  * Wilson Gip
  */
