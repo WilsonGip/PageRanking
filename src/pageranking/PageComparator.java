@@ -1,8 +1,5 @@
 package pageranking;
 
-/**
- * Wilson Gip
- */
 import java.util.Comparator;
 
 public class PageComparator implements Comparator<PageNode> {

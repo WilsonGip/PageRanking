@@ -1,7 +1,5 @@
 package pageranking;
-/**
- * Wilson Gip
- */
+
 import java.util.ArrayList;
 import java.util.Collections;
 
