@@ -34,7 +34,7 @@ public class WebCrawler {
                 ++count;
             }
             currentLink = outlinkQueue.poll();
-        }
+        } 
 
         pruneAllUnvisitedLinks();
         addAllInlinksInPageMap();

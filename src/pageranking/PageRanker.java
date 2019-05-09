@@ -1,5 +1,9 @@
 package pageranking;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -22,6 +26,25 @@ public class PageRanker {
         updatePageRanking();
         pageList.sort(new PageComparator());
         printPageRankings();
+        System.out.println("Page list size: " + pageList.size());
+    }
+
+    public void saveRankingsToCSV(){
+        try(PrintWriter writer = new PrintWriter(new File("Rankings.csv"))){
+            int rank = 1;
+            StringBuilder sb = new StringBuilder();
+            sb.append("Rank,Link,Page Rank\n");
+            for (PageNode page : pageList){
+                sb.append(Integer.toString(rank++)+","+page.getPageLinkAndRank()+"\n");
+                if(rank > 100){
+                    break;
+                }
+            }
+            writer.write(sb.toString());
+        }catch (FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
     // Initialize each PageNode's page rank with 1/(number of pages)
@@ -33,7 +56,7 @@ public class PageRanker {
 
     private void printPageRankings(){
         for (PageNode page : pageList){
-            page.printPageRank();
+            System.out.println(page.getPageLinkAndRank());
         }
     }
 

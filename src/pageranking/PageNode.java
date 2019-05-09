@@ -68,6 +68,10 @@ public class PageNode {
         System.out.println("Link: " + this.link + ", Page Rank: " + this.pageRank);
     }
 
+    public String getPageLinkAndRank(){
+        return this.link + "," + this.pageRank;
+    }
+
     public boolean pageRankUnchanged(){
         return this.previousRank == this.pageRank;
     }
